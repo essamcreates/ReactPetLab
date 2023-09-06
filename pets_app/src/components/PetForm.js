@@ -33,14 +33,14 @@ const PetForm = ({ postPet }) => {
 
     return (
         <form id="pet-form" onSubmit={handleFormSubmit}>
-            <h3>Add a new Pet</h3>
+            <h3>Add a New Pet</h3>
 
             <label htmlFor="pet-name">Pet Name:</label>
             <input
                 id="pet-name"
                 name="name"
                 type="text"
-                placeholder="enter pet name"
+                placeholder="Enter Pet Name"
                 onChange={handleChange}
                 value={statePet.name}
             />
@@ -50,7 +50,7 @@ const PetForm = ({ postPet }) => {
                 id="pet-type"
                 name="type"
                 type="text"
-                placeholder="enter pet type"
+                placeholder="Enter Pet Type"
                 onChange={handleChange}
                 value={statePet.type}
             />
@@ -60,22 +60,11 @@ const PetForm = ({ postPet }) => {
                 id="pet-breed"
                 name="breed"
                 type="text"
-                placeholder="enter pet breed"
+                placeholder="Enter Pet Breed"
                 onChange={handleChange}
                 value={statePet.breed}
             />
 
-            {/* <label htmlFor="pet-age">Pet Age:</label>
-            <input
-                id="pet-age"
-                name="petAge"
-                type="number"
-                min={1}
-                max={100}
-                placeholder="enter pet age"
-                onChange={handleChange}
-                value={statePet.petAge}
-            /> */}
 
             <label htmlFor="age">Pet Age:</label>
             <input
