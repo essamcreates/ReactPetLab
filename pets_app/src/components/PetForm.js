@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const PetForm = ({postChocolate}) => {
+const PetForm = ({ postPet }) => {
 
     const [statePet, setStatePet] = useState(
         {
@@ -14,15 +14,15 @@ const PetForm = ({postChocolate}) => {
     const handleChange = (event) => {
         console.log(event);
         let propertyName = event.target.name;
-        let clonedPet = {...statePet};
+        let clonedPet = { ...statePet };
         clonedPet[propertyName] = event.target.value;
-        setstatePet(clonedPet);
+        setStatePet(clonedPet);
     }
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        postChocolate(statePet)
-        setstatePet({
+        postPet(statePet)
+        setStatePet({
             name: "",
             type: "",
             breed: "",
@@ -31,7 +31,7 @@ const PetForm = ({postChocolate}) => {
     }
 
 
-    return(
+    return (
         <form id="pet-form" onSubmit={handleFormSubmit}>
             <h3>Add a new Pet</h3>
 
@@ -40,7 +40,7 @@ const PetForm = ({postChocolate}) => {
                 id="pet-name"
                 name="name"
                 type="text"
-                placeholder="enter pet name" 
+                placeholder="enter pet name"
                 onChange={handleChange}
                 value={statePet.name}
             />
@@ -48,7 +48,7 @@ const PetForm = ({postChocolate}) => {
             <label htmlFor="pet-type">Pet Type:</label>
             <input
                 id="pet-type"
-                name="petType"
+                name="type"
                 type="text"
                 placeholder="enter pet type"
                 onChange={handleChange}
@@ -58,14 +58,14 @@ const PetForm = ({postChocolate}) => {
             <label htmlFor="pet-breed">Pet Breed:</label>
             <input
                 id="pet-breed"
-                name="petBreed"
+                name="breed"
                 type="text"
                 placeholder="enter pet breed"
                 onChange={handleChange}
-                value={statePet.type}
+                value={statePet.breed}
             />
 
-            <label htmlFor="pet-age">Pet Age:</label>
+            {/* <label htmlFor="pet-age">Pet Age:</label>
             <input
                 id="pet-age"
                 name="petAge"
@@ -74,14 +74,25 @@ const PetForm = ({postChocolate}) => {
                 max={100}
                 placeholder="enter pet age"
                 onChange={handleChange}
+                value={statePet.petAge}
+            /> */}
+
+            <label htmlFor="age">Pet Age:</label>
+            <input
+                type="number"
+                min={1}
+                max={200}
+                id="pet-age"
+                name="age"
                 value={statePet.age}
+                onChange={handleChange}
+                required
             />
 
-
-            <input type="submit" value="Add Chocolate"/>          
+            <input type="submit" value="Add Pet" />
         </form>
     )
 
 }
 
-export default ChocolateForm;
+export default PetForm;
